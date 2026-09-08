@@ -9,6 +9,7 @@
     "dev": "nodemon src/index.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0",
     "@google/generative-ai": "^0.24.1",
     "axios": "^1.8.1",
     "bcryptjs": "^3.0.2",
