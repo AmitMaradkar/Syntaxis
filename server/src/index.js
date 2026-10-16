@@ -17,6 +17,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5174;
 
+// Trust proxy (required for Vercel / cloud platforms behind reverse proxies)
+app.set('trust proxy', 1);
+
 // Security & utilities middleware
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(
