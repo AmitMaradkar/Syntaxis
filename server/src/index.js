@@ -109,12 +109,15 @@ async function connectDB() {
   }
 }
 
-// Start Server
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`🚀 AI Coding Tutor Server running on http://localhost:${PORT}`);
-    console.log(`📡 Ready for AI requests and code tutoring`);
+// Start Server (skip when running as Vercel serverless function)
+if (!process.env.VERCEL) {
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+      console.log(`🚀 AI Coding Tutor Server running on http://localhost:${PORT}`);
+      console.log(`📡 Ready for AI requests and code tutoring`);
+    });
   });
-});
+}
 
 export default app;
+
